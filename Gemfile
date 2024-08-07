@@ -2,14 +2,15 @@ source "https://rubygems.org"
 
 ruby "3.3.4"
 
-gem "devise"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "devise"
 gem "jbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
+gem "rails-i18n"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 gem "redis", ">= 4.0.1"
 gem "stimulus-rails"
