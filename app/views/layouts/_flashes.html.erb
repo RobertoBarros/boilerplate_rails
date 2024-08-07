@@ -1,0 +1,42 @@
+<% return unless notice || alert %>
+<% stimulus = {
+  controller: "notification",
+  notification_delay_value: 4000,
+  transition_enter_from: "opacity-0 translate-x-6",
+  transition_enter_to: "opacity-100 translate-x-0",
+  transition_leave_from: "opacity-100 translate-x-0",
+  transition_leave_to: "opacity-0 translate-x-6"
+} %>
+<% alert_classes = "bg-red-50 text-red-800" %>
+<% notice_classes = "bg-green-50 text-green-800" %>
+<% button_classes = alert ? "bg-red-50 hover:bg-red-100 text-red-500" : "bg-green-50 hover:bg-green-100 text-green-500" %>
+<%= content_tag :div, data: stimulus, class: "fixed inset-x-0 bottom-4 mx-auto transition transform duration-1000 hidden rounded-md p-4 w-max #{alert ? alert_classes : notice_classes}" do %>
+  <div class="flex">
+    <div class="flex-shrink-0">
+      <% if alert %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </svg>
+      <% else %>
+        <svg class="h-5 w-5 #{alert ? 'text-red-400' : 'text-green-400'}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+    </div>
+    <div class="ml-3">
+      <p class="text-sm font-medium">
+        <%= notice || alert %>
+      </p>
+    </div>
+    <div class="ml-auto pl-3">
+      <div class="-mx-1.5 -my-1.5">
+        <button data-action="notification#hide" type="button" class="inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 #{button_classes}">
+          <span class="sr-only">Dismiss</span>
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
