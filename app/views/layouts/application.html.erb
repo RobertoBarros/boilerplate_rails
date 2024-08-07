@@ -12,11 +12,11 @@
   </head>
   <body>
     <%= render "layouts/flashes" %>
-    <%= render "layouts/sidebar" %>
-    <main class="py-10 lg:pl-72">
+    <%= render "layouts/sidebar" if render_sidebar? %>
+    <%= content_tag :main, class: class_names("py-10", "lg:pl-72": render_sidebar?) do %>
       <div class="px-4 sm:px-6 lg:px-8">
         <%= yield %>
       </div>
-    </main>
+    <% end %>
   </body>
 </html>
