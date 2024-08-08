@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
     <title>BoilerplateRails</title>
     <meta charset="UTF-8">
@@ -10,13 +10,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
-  <body>
+  <body class="h-full">
     <%= render "layouts/flashes" %>
-    <%= render "layouts/sidebar" if render_sidebar? %>
-    <%= content_tag :main, class: class_names("py-10", "lg:pl-72": render_sidebar?) do %>
-      <div class="px-4 sm:px-6 lg:px-8">
-        <%= yield %>
-      </div>
+    <% if user_signed_in? %>
+      <%= render "layouts/sidebar" %>
+      <main class="py-10 lg:pl-72">
+        <div class="px-4 sm:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
+    <% else %>
+      <%= yield %>
     <% end %>
   </body>
 </html>
