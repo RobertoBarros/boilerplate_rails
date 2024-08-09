@@ -10,4 +10,29 @@
       </div>
     </div>
   </div>
+  <% if policy(@user).destroy? %>
+    <div class="grid grid-cols-1 gap-x-8 gap-y-10  pb-12 md:grid-cols-3">
+      <div>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Danger Zone</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">Ações que não podem ser revertidas</p>
+      </div>
+      <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+        <div class="col-span-full">
+          <div class="bg-white shadow sm:rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <h3 class="text-base font-semibold leading-6 text-gray-900">Apagar usuário</h3>
+              <div class="mt-2 sm:flex sm:items-start sm:justify-between">
+                <div class="max-w-xl text-sm text-gray-500">
+                  <p>O usuário e todas as suas operações serão apagadas. Não é possível reverter esta ação.</p>
+                </div>
+                <div class="mt-5 sm:ml-6 sm:mt-0 sm:flex sm:flex-shrink-0 sm:items-center">
+                  <%= link_to "Excluir Usuário", admin_user_path(@user), data: {turbo_method: :delete, turbo_confirm: 'Tem certeza?'}, class: "inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
