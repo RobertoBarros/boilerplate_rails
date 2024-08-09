@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "dashboard" => "pages#dashboard", :as => :pages_dashboard
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users
   end
 
   get "up" => "rails/health#show", :as => :rails_health_check

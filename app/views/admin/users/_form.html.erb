@@ -1,0 +1,17 @@
+<%= form_with model: user, url: @user.new_record? ? admin_users_path : admin_user_path(@user), html: { class: "space-y-6" } do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>

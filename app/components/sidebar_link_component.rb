@@ -1,7 +1,7 @@
 class SidebarLinkComponent < ViewComponent::Base
   BASE_CLASSES = "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
-  CURRENT_CLASSES = "bg-gray-50 text-indigo-600"
-  DEFAULT_CLASSES = "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+  CURRENT_CLASSES = "bg-gray-200 text-indigo-600"
+  DEFAULT_CLASSES = "text-gray-700 hover:text-indigo-600 hover:bg-gray-200"
 
   def initialize(path:, icon:, title:, selected:)
     @path = path

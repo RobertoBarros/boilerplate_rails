@@ -35,49 +35,56 @@
         </li>
       </ul>
     </li>
-    <li>
-      <div class="text-xs font-semibold leading-6 text-gray-400">
-        Ações do Administrador
-      </div>
-      <ul role="list" class="-mx-2 mt-2 space-y-1">
-        <li>
-          <%= render SidebarLinkComponent.new(
-            path: admin_users_path,
-            icon: :users,
-            title: "Usuários",
-            selected: @sidebar == "users") %>
-        </li>
-      </ul>
-      <li class="-mx-6 mt-auto text-left">
-        <div data-controller="reveal">
-          <button data-action="click->reveal#toggle" class="inline-flex w-full items-center text-left gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
-            <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
-              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+    <% if current_user.admin? %>
+      <li>
+        <div class="text-xs font-semibold leading-6 text-gray-400">
+          Ações do Administrador
+        </div>
+        <ul role="list" class="-mx-2 mt-2 space-y-1">
+          <li>
+            <%= render SidebarLinkComponent.new(
+                path: admin_users_path,
+                icon: :users,
+                title: "Usuários",
+                selected: @sidebar == "users") %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+    <li class="-mx-6 mt-auto text-left">
+      <div data-controller="reveal">
+        <button data-action="click->reveal#toggle" class="inline-flex w-full items-center text-left gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
+          <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+            <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </span>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+              <%= current_user.name.truncate(80) %>
+            </p>
+            <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+              <%= current_user.email.truncate(80)%>
+            </p>
+          </div>
+          <div class="ml-auto">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+            </svg>
+          </div>
+        </button>
+        <div data-reveal-target="item" class="hidden absolute z-10 w-3/4 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bottom-16 left-16" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+          <div class="py-1" role="none">
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "group flex items-center px-4 py-2 text-sm text-gray-700" do %>
+              <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
               </svg>
-            </span>
-            <div class="ml-3">
-              <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900"><%= current_user.name %></p>
-              <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700"><%= current_user.email%></p>
-            </div>
-            <div class="ml-auto">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-400">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-              </svg>
-            </div>
-          </button>
-          <div data-reveal-target="item" class="hidden absolute z-10 w-3/4 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bottom-16 left-16" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-            <div class="py-1" role="none">
-              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "group flex items-center px-4 py-2 text-sm text-gray-700" do %>
-                <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
-                </svg>
-                Sair
-              <% end %>
-            </div>
+              Sair
+            <% end %>
           </div>
         </div>
-      </li>
+      </div>
     </li>
-  </ul>
+  </li>
+</ul>
 </nav>
