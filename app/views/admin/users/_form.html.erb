@@ -10,6 +10,9 @@
   <div>
     <%= f.label :password %>
     <%= f.password_field :password %>
+    <% if @user.persisted? %>
+      <em class="text-sm text-gray-500">Deixar em branco para manter a senha atual</em>
+    <% end %>
   </div>
   <div>
     <%= f.submit "Salvar" %>
