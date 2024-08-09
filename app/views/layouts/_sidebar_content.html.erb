@@ -1,3 +1,8 @@
+<%
+  base = "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+  current = "bg-gray-50 text-indigo-600"
+  default = "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+%>
 <div class="flex h-16 shrink-0 items-center">
   <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
 </div>
@@ -6,13 +11,11 @@
     <li>
       <ul role="list" class="-mx-2 space-y-1">
         <li>
-          <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" -->
-          <%= link_to pages_dashboard_path, class: "group flex gap-x-3 rounded-md bg-gray-50 p-2 text-sm font-semibold leading-6 text-indigo-600" do%>
-            <svg class="h-6 w-6 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-            Dashboard
-          <% end %>
+          <%= render SidebarLinkComponent.new(
+            path: pages_dashboard_path,
+            icon: :home,
+            title: "Dashboard",
+            selected: @sidebar == "dashboard") %>
         </li>
         <li>
           <a href="#" class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
@@ -33,14 +36,16 @@
       </ul>
     </li>
     <li>
-      <div class="text-xs font-semibold leading-6 text-gray-400">Outras opções</div>
+      <div class="text-xs font-semibold leading-6 text-gray-400">
+        Ações do Administrador
+      </div>
       <ul role="list" class="-mx-2 mt-2 space-y-1">
         <li>
-          <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" -->
-          <a href="#" class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-[0.625rem] font-medium text-gray-400 group-hover:border-indigo-600 group-hover:text-indigo-600">1</span>
-            <span class="truncate">Opção 1</span>
-          </a>
+          <%= render SidebarLinkComponent.new(
+            path: admin_users_path,
+            icon: :users,
+            title: "Usuários",
+            selected: @sidebar == "users") %>
         </li>
       </ul>
       <li class="-mx-6 mt-auto text-left">
