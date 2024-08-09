@@ -20,8 +20,10 @@ gem "view_component-form"
 gem "view_component"
 
 group :development, :test do
+  gem "better_mailer_previews"
   gem "debug", platforms: %i[mri windows]
   gem "htmlbeautifier", require: false
+  gem "letter_opener"
   gem "rails_live_reload"
   gem "ruby-lsp-rails", require: false
   gem "ruby-lsp", require: false
