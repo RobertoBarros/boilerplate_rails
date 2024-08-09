@@ -26,6 +26,26 @@
             <%= render @users %>
           </tbody>
         </table>
+        <nav class="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0 mt-1">
+          <div class="flex flex-1 items-center justify-between sm:flex sm:justify-between">
+            <div class="hidden sm:block">
+              <p class="text-sm text-gray-700">
+                Exibindo
+                <span class="font-medium"><%= @pagy.from %></span>
+                até
+                <span class="font-medium"><%= @pagy.to %></span>
+                de
+                <span class="font-medium"><%= @pagy.count %></span>
+                resultados
+              </p>
+            </div>
+            <div class="w-full sm:w-auto flex justify-center">
+              <div class="sm:flex sm:items-center sm:justify-between md:-mt-px md:flex">
+                <%== pagy_nav(@pagy) %>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
   </div>

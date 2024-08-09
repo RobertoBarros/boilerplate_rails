@@ -1,9 +1,10 @@
 class Admin::UsersController < ApplicationController
   before_action -> { @sidebar = "users" }
   before_action :set_user, only: %i[edit update destroy]
+  include Pagy::Backend
 
   def index
-    @users = policy_scope(User).order(:name)
+    @pagy, @users = pagy(policy_scope(User).order(:name))
     authorize User
   end
 
