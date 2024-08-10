@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @users = pagy(policy_scope(User).order(:name))
+    @pagy, @users = pagy(policy_scope(User).order("unaccent(lower(name)) ASC"))
     authorize User
   end
 
