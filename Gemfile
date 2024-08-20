@@ -26,6 +26,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "htmlbeautifier", require: false
   gem "letter_opener"
+  gem "lookbook", ">= 2.3.2"
   gem "rails_live_reload"
   gem "ruby-lsp-rails", require: false
   gem "ruby-lsp", require: false

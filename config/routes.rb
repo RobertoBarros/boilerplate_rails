@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   mount BetterMailerPreviews::Engine, at: "/mailers" if Rails.env.development?
+  if Rails.env.development?
+    mount Lookbook::Engine, at: "/lookbook"
+  end
 
   devise_for :users
 
