@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)
