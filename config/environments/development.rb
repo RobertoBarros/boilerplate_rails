@@ -9,7 +9,8 @@ Rails.application.configure do
 
   # Lookbook configuration
   config.lookbook.project_name = "Componentes"
-  config.lookbook.preview_paths = ["test/components/previews/tailwind_form"]
+  config.view_component.default_preview_layout = "lookbook"
+  # config.lookbook.preview_paths = ["test/components/previews/tailwind_form"]
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
