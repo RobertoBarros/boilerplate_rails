@@ -8,10 +8,10 @@ export default class extends Controller {
       maxOptions: null
     })
     tom.on('focus', () => {
-      document.querySelector('.ts-control').classList.add('border-indigo-600', 'border-2')
+      this.element.parentElement.querySelector('.ts-control').classList.add('border-indigo-600', 'border-2')
     })
     tom.on('blur', () => {
-      document.querySelector('.ts-control').classList.remove('border-indigo-600', 'border-2')
+      this.element.parentElement.querySelector('.ts-control').classList.remove('border-indigo-600', 'border-2')
     })
 
   }
