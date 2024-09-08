@@ -403,7 +403,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   pundit
-  rails (~> 7.2.0)
+  rails (~> 7.2.1)
   rails-i18n
   rails_live_reload
   redis (>= 4.0.1)

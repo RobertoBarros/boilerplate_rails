@@ -1,3 +1,5 @@
+@import "tom_select";
+@import "flatpickr/dist/flatpickr.min";
 @import "pagy.css";
 
 @tailwind base;
