@@ -4,17 +4,20 @@
 
 import { application } from "./application"
 
-import SidebarController from "./sidebar_controller"
-application.register("sidebar", SidebarController)
-
-import TomSelectController from "./tom_select_controller"
-application.register("tom-select", TomSelectController)
-
-import SwitchController from "./switch_controller"
-application.register("switch", SwitchController)
+import DrawerController from "./drawer_controller"
+application.register("drawer", DrawerController)
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
 import ImaskController from "./imask_controller"
 application.register("imask", ImaskController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
+
+import SwitchController from "./switch_controller"
+application.register("switch", SwitchController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

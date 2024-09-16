@@ -1,1 +1,7 @@
 <h1>Dashboard</h1>
+<%= render DrawerComponent.new(title: "Dashboard", button_text: "Nova Empresa") do %>
+  <h1>Hello World</h1>
+<% end %>
+<%= render DrawerComponent.new(title: "Outro", button_text: "Nova outro") do %>
+  <h1>Outro teste</h1>
+<% end %>
