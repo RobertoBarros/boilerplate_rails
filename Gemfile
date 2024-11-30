@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.5"
+ruby "3.3.6"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
@@ -13,7 +13,7 @@ gem "propshaft"
 gem "puma", ">= 5.0"
 gem "pundit"
 gem "rails-i18n"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 8.0.0"
 gem "redis", ">= 4.0.1"
 gem "stimulus-rails"
 gem "turbo-rails"
