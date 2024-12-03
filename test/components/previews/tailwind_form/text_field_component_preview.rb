@@ -1,5 +1,4 @@
-require_relative "preview"
-
+require_relative "tailwind_form_preview"
 class TailwindForm::TextFieldComponentPreview < TailwindForm::Preview
   def default
     render TailwindForm::TextFieldComponent.new(form_builder, nil, nil)

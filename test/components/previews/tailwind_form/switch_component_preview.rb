@@ -1,5 +1,4 @@
-require_relative "preview"
-
+require_relative "tailwind_form_preview"
 class TailwindForm::SwitchComponentPreview < TailwindForm::Preview
   def checked
     render TailwindForm::SwitchComponent.new(form_builder, nil, "switch", "true", "false", checked: true)
