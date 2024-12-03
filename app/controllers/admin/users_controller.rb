@@ -17,7 +17,8 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
     authorize @user
     if @user.save
-      redirect_to admin_users_path, notice: "Usuário Cadastrado"
+      flash[:notice] = "Usuário Cadastrado"
+      render turbo_stream: turbo_stream.action(:redirect, admin_users_path)
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,8 @@ class Admin::UsersController < ApplicationController
     end
 
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: "Usuário Atualizado"
+      flash[:notice] = "Usuário Atualizado"
+      render turbo_stream: turbo_stream.action(:redirect, admin_users_path)
     else
       render :edit, status: :unprocessable_entity
     end

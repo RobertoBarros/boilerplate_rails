@@ -8,6 +8,7 @@ export default class extends Controller {
   connect() {
     this.panelTarget.classList.add("translate-x-full")
     this.drawerTarget.classList.add('hidden')
+    this.open()
   }
 
   open() {
