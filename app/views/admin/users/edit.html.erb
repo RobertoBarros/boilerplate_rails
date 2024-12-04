@@ -7,11 +7,11 @@
           Apagar usuário
         </div>
         <div class="bg-white px-4 py-5 sm:p-6">
-          <p class="text-red-500 text-xs">O usuário e todas as suas operações serão apagadas. Não é possível reverter esta ação.</p>
+          <p class="text-red-500 text-xs pb-6">O usuário e todas as suas operações serão apagadas. Não é possível reverter esta ação.</p>
           <%= link_to "Excluir Usuário #{@user.name}",
             admin_user_path(@user),
             data: {turbo_method: :delete, turbo_confirm: 'Excluir o usuário. Tem certeza?', turbo_frame: '_top'},
-            class: "mt-6 inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500" %>
+            class: "flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600" %>
         </div>
       </div>
     <% end %>
