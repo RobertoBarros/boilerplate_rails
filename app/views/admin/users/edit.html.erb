@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "drawer-frame" do %>
-  <%= render DrawerComponent.new(title: "Editar Usuário") do %>
+  <%= render DrawerComponent.new(title: "Editar Usuário", animate: @user.errors.none?) do %>
     <%= render 'form', user: @user %>
     <% if policy(@user).destroy? %>
-      <div class="mt-6 overflow-hidden rounded-lg bg-gray-50 shadow">
+      <div class="mt-6 overflow-hidden rounded-lg bg-gray-200 shadow">
         <div class="px-4 py-5 sm:px-6 font-bold">
           Apagar usuário
         </div>

@@ -4,6 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = [ "drawer", "panel" ]
+  static values = { animate: Boolean }
+
 
   connect() {
     // this.panelTarget.classList.add("translate-x-full")
@@ -14,8 +16,10 @@ export default class extends Controller {
   open() {
     this.drawerTarget.classList.remove('hidden')
 
-    // Força reflow para permitir a transição
-    this.drawerTarget.offsetHeight
+    if (this.animateValue) {
+      // Força reflow para permitir a transição
+      this.drawerTarget.offsetHeight
+    }
 
     this.panelTarget.classList.remove("translate-x-full")
     this.panelTarget.classList.add("translate-x-0")
