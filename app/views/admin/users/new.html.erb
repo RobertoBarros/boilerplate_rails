@@ -1,5 +1,3 @@
-<%= turbo_frame_tag "drawer-frame" do %>
-  <%= render DrawerComponent.new(title: "Novo Usuário", animate: @user.errors.none?) do %>
-    <%= render 'form', user: @user %>
-  <% end %>
+<%= render DrawerComponent.new(title: "Novo Usuário", animate: @user.errors.none?) do %>
+  <%= render 'form', user: @user %>
 <% end %>
