@@ -4,8 +4,11 @@ class Admin::UsersController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @users = pagy(policy_scope(User).order("unaccent(lower(name)) ASC"))
-    authorize User
+    @users = policy_scope(User).order("unaccent(lower(name)) ASC")
+    if params[:search].present?
+      @users = @users.where("unaccent(lower(name)) LIKE ?", "%#{params[:search].downcase}%")
+    end
+    @pagy, @users = pagy(@users)
   end
 
   def new

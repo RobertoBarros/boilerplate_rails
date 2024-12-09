@@ -13,4 +13,8 @@ class TailwindBuilder < ViewComponent::Form::Builder
   def flatpickr_field(method, options = {})
     render_component(:flatpickr, @object_name, method, objectify_options(options))
   end
+
+  def search_field(method, options = {})
+    render_component(:search, @object_name, method, objectify_options(options))
+  end
 end
