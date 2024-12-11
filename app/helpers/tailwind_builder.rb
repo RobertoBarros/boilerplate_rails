@@ -15,6 +15,6 @@ class TailwindBuilder < ViewComponent::Form::Builder
   end
 
   def search_field(method, options = {})
-    render_component(:search, @object_name, method, objectify_options(options))
+    render_component(:search_field, @object_name, method, objectify_options(options))
   end
 end
