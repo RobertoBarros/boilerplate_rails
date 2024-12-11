@@ -208,6 +208,14 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.8)
+    premailer (1.27.0)
+      addressable
+      css_parser (>= 1.19.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.12.0)
+      actionmailer (>= 3)
+      net-smtp
+      premailer (~> 1.7, >= 1.7.9)
     prism (1.2.0)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
@@ -402,6 +410,7 @@ DEPENDENCIES
   lookbook (>= 2.3.2)
   pagy
   pg (~> 1.1)
+  premailer-rails
   propshaft
   puma (>= 5.0)
   pundit

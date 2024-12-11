@@ -7,5 +7,6 @@ pt-BR:
         email: E-mail
         password: Senha
         password_confirmation: Repetir Senha
+        current_password: Senha Atual
         name: Nome
         remember_me: "Manter conectado"
