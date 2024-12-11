@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     mount Lookbook::Engine, at: "/lookbook"
   end
 
-  devise_for :users
+  devise_for :users, controllers: {invitations: "users/invitations"}
 
   get "dashboard" => "pages#dashboard", :as => :pages_dashboard
 

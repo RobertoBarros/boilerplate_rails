@@ -4,6 +4,7 @@ ruby "3.3.6"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "devise_invitable"
 gem "devise"
 gem "jbuilder"
 gem "jsbundling-rails"
