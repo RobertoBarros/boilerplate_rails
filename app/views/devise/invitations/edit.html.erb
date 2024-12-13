@@ -1,22 +1,31 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
-
-<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :invitation_token, readonly: true %>
-
-  <% if f.object.class.require_password_on_accepting %>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t("devise.invitations.edit.submit_button") %>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Confirmar Convite</h2>
   </div>
-<% end %>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put , class: "space-y-6" } do |f| %>
+      <%= f.hidden_field :invitation_token, readonly: true %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <div class="mt-2">
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <em class="text-sm text-gray-500">Mínimo de <%= @minimum_password_length %> caracteres</em>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= f.label :password_confirmation %>
+        <div class="mt-2">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      </div>
+      <div>
+        <%= f.submit "Cadastrar" %>
+      </div>
+    <% end %>
+  </div>

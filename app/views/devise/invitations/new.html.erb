@@ -1,18 +1,21 @@
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Convidar Usuário</h2>
-  </div>
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post, class: "space-y-6" } do |f| %>
-      <div>
-        <%= f.label :email %>
-        <div class="mt-2">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+<%= render DrawerComponent.new(title: "Convidar Usuário", animate: resource.errors.none?) do %>
+  <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post, class: "space-y-6" } do |f| %>
+    <div>
+      <%= f.label :name %>
+      <div class="mt-2">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
-      <div>
-        <%= f.submit "Entrar" %>
+    </div>
+    <div>
+      <%= f.label :email %>
+      <div class="mt-2">
+        <%= f.email_field :email, autocomplete: "email" %>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
+    <div>
+      <%= f.submit "Convidar Usuário" %>
+    </div>
+  <% end %>
+<% end %>
+
+
