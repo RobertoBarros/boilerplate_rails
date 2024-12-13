@@ -4,12 +4,13 @@
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="sm:flex sm:items-center">
     <div class="sm:flex-auto">
-      <%= form_with url: admin_users_path, class:"max-w-md", method: :get do |f| %>
+      <%= form_with url: admin_users_path, class:"max-w-sm", method: :get do |f| %>
         <%= f.search_field :search, value: params[:search], placeholder: "Search users..." %>
       <% end %>
     </div>
-    <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-      <%= link_to "Novo usuário", new_admin_user_path, class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo_frame: 'drawer-frame'}%>
+    <div class="flex gap-x-4">
+      <%= link_to "Novo", new_admin_user_path, class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo_frame: 'drawer-frame'}%>
+      <%= link_to "Convidar", new_user_invitation_path, class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo_frame: 'drawer-frame'}%>
     </div>
   </div>
   <div class="mt-8 flow-root">
